@@ -1,0 +1,178 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <style>
+  @media (max-width:575px) {
+    body {
+     background-color: pink;
+    }
+  }
+
+  @media (min-width:576px) and (max-width:767px) {
+    body {
+      background-color:lightgrey;
+    }
+  }
+
+  @media (max-width:675px) {
+    h1 {
+      font-size:28px;
+    }
+  }
+
+  @media (min-width:768px) and (max-width:991px) {
+    body {
+      background-color:lightblue;
+    }
+
+  }
+
+  @media (min-width:992px) and (max-width: 1199px) {
+    body {
+      background-color:	#98ff98;
+    }
+  }
+
+  @media (min-width:1200px) {
+    body {
+      background-color:	white;
+    }
+  }
+
+ .color1 {
+   background-color: #ff0329;
+   padding: 20px;
+   font-weight: bold;
+   text-align: center;
+ }
+
+ .color2 {
+   background-color: #03e0a1;
+   padding: 20px;
+   font-weight: bold;
+   text-align: center;
+ }
+
+ #myWidth {
+   font-weight: bold;
+ }
+
+ h5 {
+   padding: 0px;
+   margin: 0px;
+ }
+
+ img {
+   height: 100px;
+   margin-right:20px;
+ }
+
+ .box {
+   display:inline-block;
+   vertical-align:top;
+ }
+
+</style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <h1>Bootstrap Grid Example (<i>Resize Me!</i>)</h1>
+
+  <div class="box" id="deviceImage">
+    testing
+  </div>
+  <div class="box">
+    <h5 id="size">Large</h5>
+    Window width: <span id="myWidth"></span>px
+    <br />
+      Device type: <span id="myDevice"></span>
+    <br />
+    Bootstrap grid class: <span id="bootstrapSize"></span>
+    <br /><br />
+  </div>
+
+      <h5>ROW 1 (Responsive)</h5>
+      <div class="row">
+        <div class="col-lg-2 col-md-4 col-sm-6 col-12 color1">A</div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-12 color2">B</div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-12 color1">C</div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-12 color2">D</div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-12 color1">E</div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-12 color2">F</div>
+    </div>
+
+  <br>
+
+
+    <h5>ROW 2</h5>
+    <div class="row">
+      <div class="col color2">A</div>
+      <div class="col color1">B</div>
+      <div class="col color2">C</div>
+    </div>
+
+</div>
+
+<script>
+var width = window.innerWidth;
+$('#myWidth').html(width);
+convertWidth(width);
+
+$(window).on('resize', function(){
+   width = window.innerWidth;
+   $('#myWidth').html(width);
+   convertWidth(width);
+});
+
+function convertWidth(x) {
+  // extra small devices
+  if (x < 576) {
+    $('#bootstrapSize').html('<b>XS</b> (use col-#)');
+    $('#myDevice').html('<b>Phone</b> (less than 576px)');
+    $('#size').html('Extra Small');
+    $('#deviceImage').html('<img src=https://cdn1.iconfinder.com/data/icons/apple-devices-iphone-ipad-ipod-imac-macbook-watch/128/ipod_white-256.png />');
+  }
+  // small devices
+  if (x >= 576 && x < 768) {
+    $('#bootstrapSize').html('<b>S</b> (use col-sm-#)');
+    $('#myDevice').html('<b>Tablet</b> (576px and up)');
+    $('#size').html('Small');
+    $('#deviceImage').html('<img src=https://cdn1.iconfinder.com/data/icons/apple-devices-iphone-ipad-ipod-imac-macbook-watch/128/ipad_white-256.png />');
+  }
+  // medium devices
+  if (x >= 768 && x < 992) {
+    $('#bootstrapSize').html('<b>M</b> (use col-md-#)');
+    $('#myDevice').html('<b>Desktop</b> (768px and up)');
+    $('#size').html('Medium');
+    $('#deviceImage').html('<img src=https://cdn1.iconfinder.com/data/icons/apple-devices-iphone-ipad-ipod-imac-macbook-watch/128/macbook-256.png />');
+  }
+  // large devices
+  if (x >= 992 && x < 1200) {
+    $('#bootstrapSize').html('<b>L</b> (use col-lg-#)');
+    $('#myDevice').html('<b>Large Desktop</b> (992px and up)');
+    $('#size').html('Large');
+    $('#deviceImage').html('<img src=https://cdn1.iconfinder.com/data/icons/apple-devices-iphone-ipad-ipod-imac-macbook-watch/128/imac-256.png />');
+  }
+  // extra large devices
+  if (x >= 1200) {
+    $('#bootstrapSize').html('<b>XL</b> (use col-xl-#)');
+    $('#myDevice').html('<b>Extra Large Desktop</b> (1200px and up)');
+    $('#size').html('Extra Large');
+    $('#deviceImage').html('<img src=https://cdn1.iconfinder.com/data/icons/apple-devices-iphone-ipad-ipod-imac-macbook-watch/128/imac-256.png />');
+  }
+}
+
+</script>
+</body>
+</html>
