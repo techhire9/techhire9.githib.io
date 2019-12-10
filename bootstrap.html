@@ -102,20 +102,20 @@
     <br /><br />
   </div>
 
-      <h5>ROW 1 (Responsive)</h5>
+      <h5>ROW 1 (Responsive)<span id="my-col"></span></h5>
       <div class="row">
-        <div class="col-lg-2 col-md-4 col-sm-6 col-12 color1">A</div>
-        <div class="col-lg-2 col-md-4 col-sm-6 col-12 color2">B</div>
-        <div class="col-lg-2 col-md-4 col-sm-6 col-12 color1">C</div>
-        <div class="col-lg-2 col-md-4 col-sm-6 col-12 color2">D</div>
-        <div class="col-lg-2 col-md-4 col-sm-6 col-12 color1">E</div>
-        <div class="col-lg-2 col-md-4 col-sm-6 col-12 color2">F</div>
+        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12 color1">A</div>
+        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12 color2">B</div>
+        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12 color1">C</div>
+        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12 color2">D</div>
+        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12 color1">E</div>
+        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12 color2">F</div>
     </div>
 
   <br>
 
 
-    <h5>ROW 2</h5>
+    <h5>ROW 2: col</h5>
     <div class="row">
       <div class="col color2">A</div>
       <div class="col color1">B</div>
@@ -138,6 +138,7 @@ $(window).on('resize', function(){
 function convertWidth(x) {
   // extra small devices
   if (x < 576) {
+    $('#my-col').html(': col-12');
     $('#bootstrapSize').html('<b>XS</b> (use col-#)');
     $('#myDevice').html('<b>Phone</b> (less than 576px)');
     $('#size').html('Extra Small');
@@ -145,6 +146,7 @@ function convertWidth(x) {
   }
   // small devices
   if (x >= 576 && x < 768) {
+    $('#my-col').html(': col-sm-6');
     $('#bootstrapSize').html('<b>S</b> (use col-sm-#)');
     $('#myDevice').html('<b>Tablet</b> (576px and up)');
     $('#size').html('Small');
@@ -152,6 +154,7 @@ function convertWidth(x) {
   }
   // medium devices
   if (x >= 768 && x < 992) {
+    $('#my-col').html(': col-md-4');
     $('#bootstrapSize').html('<b>M</b> (use col-md-#)');
     $('#myDevice').html('<b>Desktop</b> (768px and up)');
     $('#size').html('Medium');
@@ -159,6 +162,7 @@ function convertWidth(x) {
   }
   // large devices
   if (x >= 992 && x < 1200) {
+    $('#my-col').html(': col-lg-2');
     $('#bootstrapSize').html('<b>L</b> (use col-lg-#)');
     $('#myDevice').html('<b>Large Desktop</b> (992px and up)');
     $('#size').html('Large');
@@ -166,6 +170,7 @@ function convertWidth(x) {
   }
   // extra large devices
   if (x >= 1200) {
+    $('#my-col').html(': col-xl-2');
     $('#bootstrapSize').html('<b>XL</b> (use col-xl-#)');
     $('#myDevice').html('<b>Extra Large Desktop</b> (1200px and up)');
     $('#size').html('Extra Large');
